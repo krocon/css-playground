@@ -15,59 +15,110 @@
     }
     body {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
     html {
       /* brand foundation */
-      --brand-hue: 200;
-      --brand-saturation: 100%;
-      --brand-lightness: 50%;
+      --brand-1-hue: 207;
+      --brand-1-saturation: 70%;
+      --brand-1-lightness: 42%;
+
+      --brand-2-hue: 51;
+      --brand-2-saturation: 100%;
+      --brand-2-lightness: 50%;
+
+      --positive-l: 0.573;
+      --positive-c: 0.231;
+      --positive-h: 21.62;
+
+      --negative-l: 0.8;
+      --negative-c: 0.249;
+      --negative-h: 138.355;
+
+      --info-l: 0.646;
+      --info-c: 0.144;
+      --info-h: 238.503;
+
+      --error-l: 0.56;
+      --error-c: 0.23;
+      --error-h: 29.234;
+
+      --warning-l: 0.665;
+      --warning-c: 0.161;
+      --warning-h: 0.161;
+
+      --success-l: 0.787;
+      --success-c: 0.266;
+      --success-h: 142.17;
+
+
+      .positive {color: oklch(var(--positive-l) var(--positive-c) var(--positive-h));}
+      .negative {color: oklch(var(--negative-l) var(--negative-c) var(--negative-h));}
+      .info {color: oklch(var(--info-l) var(--info-c) var(--info-h));}
+      .error {color: oklch(var(--error-l) var(--error-c) var(--error-h));}
+      .warning {color: oklch(var(--warning-l) var(--warning-c) var(--warning-h));}
+      .success {color: oklch(var(--success-l) var(--success-c) var(--success-h));}
+
+      /*.positive-color {color: oklch(var(--positive-l) var(--positive-c) var(--positive-h));}*/
+      /*.negative-color {color: #5ae000;}*/
+      /*.info-color {color: #0098db;}*/
+      /*.error-color {color: #db0000 }*/
+      /*.warning-color {color: #db7500;}*/
+      /*.success-color {color: #db7500;}*/
+
+      /* bright */
+      --brand-1-bright: hsl(var(--brand-1-hue) var(--brand-1-saturation) var(--brand-1-lightness));
+      --brand-2-bright: hsl(var(--brand-2-hue) var(--brand-2-saturation) var(--brand-2-lightness));
+      --text1-bright: hsl(var(--brand-1-hue) var(--brand-1-saturation) 10%);
+      --text2-bright: hsl(var(--brand-1-hue) 30% 35%);
+      --surface1-bright: hsl(var(--brand-1-hue) 25% 100%);
+      --surface2-bright: hsl(var(--brand-1-hue) 20% 95%);
+      --surface3-bright: hsl(var(--brand-1-hue) 20% 90%);
+      --surface4-bright: hsl(var(--brand-1-hue) 20% 90%);
+      --surface-shadow-bright: var(--brand-1-hue) 10% 20%;
+      --shadow-strength-bright: .02;
 
       /* light */
-      --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
-      --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
-      --text2-light: hsl(var(--brand-hue) 30% 30%);
-      --surface1-light: hsl(var(--brand-hue) 25% 90%);
-      --surface2-light: hsl(var(--brand-hue) 20% 99%);
-      --surface3-light: hsl(var(--brand-hue) 20% 92%);
-      --surface4-light: hsl(var(--brand-hue) 20% 85%);
-      --surface-shadow-light: var(--brand-hue) 10% 20%;
+      --brand-1-light: hsl(var(--brand-1-hue) var(--brand-1-saturation) var(--brand-1-lightness));
+      --brand-2-light: hsl(var(--brand-2-hue) var(--brand-2-saturation) var(--brand-2-lightness));
+      --text1-light: hsl(var(--brand-1-hue) var(--brand-1-saturation) 10%);
+      --text2-light: hsl(var(--brand-1-hue) 30% 30%);
+      --surface1-light: hsl(var(--brand-1-hue) 25% 90%);
+      --surface2-light: hsl(var(--brand-1-hue) 20% 99%);
+      --surface3-light: hsl(var(--brand-1-hue) 20% 92%);
+      --surface4-light: hsl(var(--brand-1-hue) 20% 85%);
+      --surface-shadow-light: var(--brand-1-hue) 10% 20%;
       --shadow-strength-light: .02;
 
       /* dark */
-      --brand-dark: hsl(
-          var(--brand-hue)
-          calc(var(--brand-saturation) / 2)
-          calc(var(--brand-lightness) / 1.5)
-      );
-      --text1-dark: hsl(var(--brand-hue) 15% 85%);
-      --text2-dark: hsl(var(--brand-hue) 5% 65%);
-      --surface1-dark: hsl(var(--brand-hue) 10% 10%);
-      --surface2-dark: hsl(var(--brand-hue) 10% 15%);
-      --surface3-dark: hsl(var(--brand-hue) 5%  20%);
-      --surface4-dark: hsl(var(--brand-hue) 5% 25%);
-      --surface-shadow-dark: var(--brand-hue) 50% 3%;
+      --brand-1-dark: hsl(var(--brand-1-hue) calc(var(--brand-1-saturation) / 2) calc(var(--brand-1-lightness) / 1.5 ));
+      --brand-2-dark: hsl(var(--brand-2-hue) calc(var(--brand-2-saturation) / 2) calc(var(--brand-2-lightness) / 1.5));
+      --text1-dark: hsl(var(--brand-1-hue) 15% 85%);
+      --text2-dark: hsl(var(--brand-1-hue) 5% 65%);
+      --surface1-dark: hsl(var(--brand-1-hue) 10% 10%);
+      --surface2-dark: hsl(var(--brand-1-hue) 10% 15%);
+      --surface3-dark: hsl(var(--brand-1-hue) 5%  20%);
+      --surface4-dark: hsl(var(--brand-1-hue) 5% 25%);
+      --surface-shadow-dark: var(--brand-1-hue) 50% 3%;
       --shadow-strength-dark: .8;
 
       /* dim */
-      --brand-dim: hsl(
-          var(--brand-hue)
-          calc(var(--brand-saturation) / 1.25)
-          calc(var(--brand-lightness) / 1.25)
-      );
-      --text1-dim: hsl(var(--brand-hue) 15% 75%);
-      --text2-dim: hsl(var(--brand-hue) 10% 61%);
-      --surface1-dim: hsl(var(--brand-hue) 10% 20%);
-      --surface2-dim: hsl(var(--brand-hue) 10% 25%);
-      --surface3-dim: hsl(var(--brand-hue) 5%  30%);
-      --surface4-dim: hsl(var(--brand-hue) 5% 35%);
-      --surface-shadow-dim: var(--brand-hue) 30% 13%;
+      --brand-1-dim: hsl( var(--brand-1-hue) calc(var(--brand-1-saturation) / 1.25)  calc(var(--brand-1-lightness) / 1.25) );
+      --brand-2-dim: hsl( var(--brand-2-hue) calc(var(--brand-2-saturation) / 1.25)  calc(var(--brand-2-lightness) / 1.25) );
+      --text1-dim: hsl(var(--brand-1-hue) 15% 75%);
+      --text2-dim: hsl(var(--brand-1-hue) 10% 61%);
+      --surface1-dim: hsl(var(--brand-1-hue) 10% 20%);
+      --surface2-dim: hsl(var(--brand-1-hue) 10% 25%);
+      --surface3-dim: hsl(var(--brand-1-hue) 5%  30%);
+      --surface4-dim: hsl(var(--brand-1-hue) 5% 35%);
+      --surface-shadow-dim: var(--brand-1-hue) 30% 13%;
       --shadow-strength-dim: .2;
 
     }
     html,
     [data-theme="light"] {
-      --brand: var(--brand-light);
+      --brand-1: var(--brand-1-light);
+      --brand-2: var(--brand-2-light);
       --text1: var(--text1-light);
       --text2: var(--text2-light);
       --surface1: var(--surface1-light);
@@ -78,8 +129,22 @@
       --shadow-strength: var(--shadow-strength-light);
     }
 
+    [data-theme="bright"] {
+      --brand-1: var(--brand-1-bright);
+      --brand-2: var(--brand-2-bright);
+      --text1: var(--text1-bright);
+      --text2: var(--text2-bright);
+      --surface1: var(--surface1-bright);
+      --surface2: var(--surface2-bright);
+      --surface3: var(--surface3-bright);
+      --surface4: var(--surface4-bright);
+      --surface-shadow: var(--surface-shadow-bright);
+      --shadow-strength: var(--shadow-strength-bright);
+    }
+
     [data-theme="dark"] {
-      --brand: var(--brand-dark);
+      --brand-1: var(--brand-1-dark);
+      --brand-2: var(--brand-2-dark);
       --text1: var(--text1-dark);
       --text2: var(--text2-dark);
       --surface1: var(--surface1-dark);
@@ -91,7 +156,8 @@
     }
 
     [data-theme="dim"] {
-      --brand: var(--brand-dim);
+      --brand-1: var(--brand-1-dim);
+      --brand-2: var(--brand-2-dim);
       --text1: var(--text1-dim);
       --text2: var(--text2-dim);
       --surface1: var(--surface1-dim);
@@ -109,9 +175,13 @@
       color: var(--text1);
     }
 
-    .brand {
-      color: var(--brand);
-      background-color: var(--brand);
+    .brand-1 {
+      color: var(--brand-1);
+      background-color: var(--brand-1);
+    }
+    .brand-2 {
+      color: var(--brand-2);
+      background-color: var(--brand-2);
     }
 
     .surface1 {
@@ -161,19 +231,45 @@
       > div {
         display: grid;
         place-items: center;
+        border-radius: 1rem;
+        align-content: center;
+        justify-content: center;
+        place-content: center;
+        font-size: 3rem;
+        font-weight: 200
       }
+
+    }
+    .rad-shadow {
+      border: 1px solid hsl(var(--brand-1-hue) 10% 50% / 15%);
+      box-shadow: 0 1rem .5rem -.5rem;
+      box-shadow: 0 2.8px 2.2px hsl(var(--surface-shadow)/ calc(var(--shadow-strength) + .03)),0 6.7px 5.3px hsl(var(--surface-shadow)/ calc(var(--shadow-strength) + .01)),0 12.5px 10px hsl(var(--surface-shadow)/ calc(var(--shadow-strength) + .02)),0 22.3px 17.9px hsl(var(--surface-shadow)/ calc(var(--shadow-strength) + .02)),0 41.8px 33.4px hsl(var(--surface-shadow)/ calc(var(--shadow-strength) + .03)),0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength))
     }
 
+    .swatch {
+      display: inline-block;
+      flex-shrink: 0;
+      inline-size: 1.5ch;
+      block-size: 1.5ch;
+      border-radius: 50%
+    }
+
+    .swatch.text1 {
+      background-color: var(--text1)
+    }
+
+    .swatch.text2 {
+      background-color: var(--text2)
+    }
 
   </style>
 </head>
 <body>
 
+  <div data-theme="bright"></div>
   <div data-theme="light"></div>
-
-  <div data-theme="dark"></div>
-
   <div data-theme="dim"></div>
+  <div data-theme="dark"></div>
 
   <template>
     <section>
@@ -188,8 +284,12 @@
     <section>
       <div class="text-samples">
         <h1 class="text1">
-          <span class="swatch brand rad-shadow"></span>
-          Brand
+          <span class="swatch brand-1 rad-shadow"></span>
+          Brand 1
+        </h1>
+        <h1 class="text1">
+          <span class="swatch brand-2 rad-shadow"></span>
+          Brand 2
         </h1>
         <h1 class="text1">
           <span class="swatch text1 rad-shadow"></span>
@@ -203,6 +303,26 @@
         <p class="text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <p class="text2">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
+    </section>
+
+    <section>
+      <table>
+        <thead>
+          <tr><th>Header 1</th><th>Header 2</th><th>Header 3</th><th>Header 4</th><th>Header 5</th><th>Header 6</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td></tr>
+          <tr><td>Aaaaaa</td><td class="positive">123.456</td><td>Cccccc</td><td class="info">Info</td><td>Bbbbb</td><td class="success">success</td></tr>
+          <tr><td>Aaaaaa</td><td class="positive">123.456</td><td>Cccccc</td><td class="info">Info</td><td>Bbbbb</td><td class="success">success</td></tr>
+          <tr><td>Aaaaaa</td><td class="positive">123.456</td><td>Cccccc</td><td class="info">Info</td><td>Bbbbb</td><td class="success">success</td></tr>
+          <tr><td class="negative">-123.123</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td></tr>
+          <tr><td class="negative">-123.123</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td class="error">Error</td></tr>
+          <tr><td class="negative">-123.123</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td class="error">Error</td></tr>
+          <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td class="warning">Warning</td><td>Bbbbb</td><td class="error">Error</td></tr>
+          <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td class="warning">Warning</td><td>Bbbbb</td><td>Cccccc</td></tr>
+          <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td class="warning">Warning</td><td>Bbbbb</td><td>Cccccc</td></tr>
+        </tbody>
+      </table>
     </section>
   </template>
 
