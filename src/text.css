@@ -1,0 +1,9 @@
+
+
+* {color: var(--default-text)}
+.text-normal {color: var(--default-text)}
+.text-muted {color: var(--muted-text)}
+.text-error {color: var(--red-text)}
+.text-success {color: var(--green-text)}
+.text-info {color: var(--blue-text)}
+.text-warning {color: var(--orange-text)}

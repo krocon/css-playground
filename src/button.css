@@ -1,0 +1,55 @@
+
+.ge-btn {
+    align-items: center;
+    border: 1px solid;
+    border-radius: 20px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+}
+
+/*.ge-btn:hover,*/
+/*.ge-btn:focus {*/
+/*    background-color: #16437E;*/
+/*    color: #ffffff;*/
+/*}*/
+
+/*.ge-btn:active {*/
+/*    background: #09223b;*/
+/*    color: rgb(255, 255, 255, .7);*/
+/*}*/
+
+.ge-btn:disabled {
+    cursor: not-allowed;
+}
+
+
+.ge-btn.primary { --btn-bg: var( --yellow-bg); --btn-text: var(--text-on-yellow-bg);}
+.ge-btn.secondary { --btn-bg: var(--muted-bg); --btn-text: var(--text-on-muted-bg);}
+.ge-btn.error { --btn-bg: var(--red-bg); --btn-text: var(--text-on-red-bg);}
+.ge-btn.info { --btn-bg: var(--blue-bg); --btn-text: var(--text-on-blue-bg);}
+.ge-btn.warning { --btn-bg: var(--orange-bg); --btn-text: var(--text-on-orange-bg);}
+.ge-btn.success { --btn-bg: var(--green-bg); --btn-text: var(--text-on-green-bg);}
+
+.ge-btn { background-color: var( --btn-bg); color: var(--btn-text); border-color: oklch(from var(--btn-bg) calc(l + var(--border-h-shift)) c h);}
+.ge-btn:hover { background-color: color-mix(in oklch, var(--btn-bg) 100%, var(--btn-hover-mix-color) 12%); }
+.ge-btn:hover {
+    outline: 1px cyan solid;
+    outline-offset: 0px; }

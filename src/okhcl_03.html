@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>oklch color mix</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    html {
+      /* brand foundation */
+      --info: oklch(0.646 0.144 239);
+      --error: oklch(0.646 0.144 20);
+      --warning: oklch(0.646 0.144 43);
+      --success: oklch(0.646 0.144 150);
+
+      --content-bg: oklch(1 0 239);
+      --content-bg-mix: oklch(from var(--content-bg) l c calc(h + 180));
+      --content-text: oklch(0 0 0);
+
+      /* --surface-1: color-mix(in oklch, var(--content-bg), var(--color2) var(--percent)); */
+    }
+
+    html,
+    [data-theme="light"] {
+    }
+
+    [data-theme="bright"] {
+    }
+
+    [data-theme="dark"] {
+    }
+
+    [data-theme="dim"] {
+    }
+
+    .info {color: oklch(var(--info-l) var(--info-c) var(--info-h));}
+    .error {color: oklch(var(--error-l) var(--error-c) var(--error-h));}
+    .warning {color: oklch(var(--warning-l) var(--warning-c) var(--warning-h));}
+    .success {color: oklch(var(--success-l) var(--success-c) var(--success-h));}
+
+    .info-text {color: var(--info);}
+    .error-text {color: var(--error);}
+    .warning-text {color: var(--warning);}
+    .success-text {color: var(--success);}
+
+    .info-bg {background-color: var(--info);}
+    .error-bg {background-color: var(--error);}
+    .warning-bg {background-color: var(--warning);}
+    .success-bg {background-color: var(--success);}
+
+
+    .palette {
+      display: flex;
+      > div {
+        min-width: 100px;
+        height: 60px;
+      }
+    }
+
+    table {
+      tbody {
+        tr:nth-child(odd) {
+          background-color: var(--surface1);
+        }
+        tr:nth-child(even) {
+          background-color: var(--surface2);
+        }
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div data-theme="bright"></div>
+<!--div data-theme="light"></div>
+<div data-theme="dim"></div>
+<div data-theme="dark"></div-->
+
+<template>
+
+  <div class="palette">
+    <div style="background-color: var(--info)">--info</div>
+    <div style="background-color: var(--error)">--error</div>
+    <div style="background-color: var(--warning)">--warning</div>
+    <div style="background-color: var(--success)">--success</div>
+    <div style="background-color: var(--content-bg)">--content-bg</div>
+    <div style="background-color: var(--content-text)">--content-text</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 180))">+180</div>
+  </div>
+  
+  <br>
+  <br>
+  <br>
+  <div class="palette">
+    <div style="background-color: var(--info)">--info</div>
+    <div style="background-color: var(--error)">--error</div>
+    <div style="background-color: var(--warning)">--warning</div>
+    <div style="background-color: var(--success)">--success</div>
+    <div style="background-color: var(--content-bg)">--content-bg</div>
+    <div style="background-color: var(--content-text)">--content-text</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 30))">+30</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 30))">+30</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 30))">+30</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 30))">+30</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 30))">+30</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 30))">+30</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 60))">+60</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 60))">+60</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 60))">+60</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 60))">+60</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 60))">+60</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 60))">+60</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 90))">+90</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 90))">+90</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 90))">+90</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 90))">+90</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 90))">+90</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 90))">+90</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 120))">+120</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 120))">+120</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 120))">+120</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 120))">+120</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 120))">+120</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 120))">+120</div>
+  </div>
+  
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 150))">+150</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 150))">+150</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 150))">+150</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 150))">+150</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 150))">+150</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 150))">+150</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 180))">+180</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 180))">+180</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 210))">+210</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 210))">+210</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 210))">+210</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 210))">+210</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 210))">+210</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 210))">+210</div>
+  </div>
+  
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 240))">+240</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 240))">+240</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 240))">+240</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 240))">+240</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 240))">+240</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 240))">+240</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 270))">+270</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 270))">+270</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 270))">+270</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 270))">+270</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 270))">+270</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 270))">+270</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 300))">+300</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 300))">+300</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 300))">+300</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 300))">+300</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 300))">+300</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 300))">+300</div>
+  </div>
+  
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 330))">+330</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 330))">+330</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 330))">+330</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 330))">+330</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 330))">+330</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 330))">+330</div>
+  </div>
+  <div class="palette">
+    <div style="background-color: oklch(from var(--info) l c calc(h + 360))">+360</div>
+    <div style="background-color: oklch(from var(--error) l c calc(h + 360))">+360</div>
+    <div style="background-color: oklch(from var(--warning) l c calc(h + 360))">+360</div>
+    <div style="background-color: oklch(from var(--success) l c calc(h + 360))">+360</div>
+    <div style="background-color: oklch(from var(--content-bg) l c calc(h + 360))">+360</div>
+    <div style="background-color: oklch(from var(--content-text) l c calc(h + 360))">+360</div>
+  </div>
+
+  
+  <!--section>
+    <table>
+      <thead>
+      <tr><th>Header 1</th><th>Header 2</th><th>Header 3</th><th>Header 4</th><th>Header 5</th><th>Header 6</th></tr>
+      </thead>
+      <tbody>
+      <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td></tr>
+      <tr><td>Aaaaaa</td><td class="positive">123.456</td><td>Cccccc</td><td class="info">Info</td><td>Bbbbb</td><td class="success">success</td></tr>
+      <tr><td>Aaaaaa</td><td class="positive">123.456</td><td>Cccccc</td><td class="info">Info</td><td>Bbbbb</td><td class="success">success</td></tr>
+      <tr><td>Aaaaaa</td><td class="positive">123.456</td><td>Cccccc</td><td class="info">Info</td><td>Bbbbb</td><td class="success">success</td></tr>
+      <tr><td class="negative">-123.123</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td></tr>
+      <tr><td class="negative">-123.123</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td class="error">Error</td></tr>
+      <tr><td class="negative">-123.123</td><td>Bbbbb</td><td>Cccccc</td><td>Aaaaaa</td><td>Bbbbb</td><td class="error">Error</td></tr>
+      <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td class="warning">Warning</td><td>Bbbbb</td><td class="error">Error</td></tr>
+      <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td class="warning">Warning</td><td>Bbbbb</td><td>Cccccc</td></tr>
+      <tr><td>Aaaaaa</td><td>Bbbbb</td><td>Cccccc</td><td class="warning">Warning</td><td>Bbbbb</td><td>Cccccc</td></tr>
+      </tbody>
+    </table>
+  </section-->
+</template>
+
+
+<script>
+  function go() {
+    const template = document.getElementsByTagName("template")[0];
+    document
+        .querySelectorAll('div[data-theme]')
+        .forEach(div => {
+          const clone = template.content.cloneNode(true);
+          div.appendChild(clone);
+        });
+  }
+  go();
+</script>
+</body>
+</html>
+
+
