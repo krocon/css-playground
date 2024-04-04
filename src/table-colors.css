@@ -6,11 +6,11 @@
 }
 .ge-table tbody {
     tr,
-    tr.even-row {
+    tr.odd-row {
         td {
             border-top-color: #ccc;
             border-bottom-color: #ccc;
-            background-color: #fff;
+            background-color: #fafafa;
             color: #000;
 
             &.bg-dark-green {
@@ -263,9 +263,9 @@
     }
 
 
-    tr.odd-row {
+    tr.even-row {
         td {
-            background-color: #fafafa;
+            background-color: #fff;
 
             &.bg-dark-green {
                 background-color: #13686e;
