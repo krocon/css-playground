@@ -1,0 +1,13 @@
+.ge-table {
+    border-collapse: collapse;
+
+    th,
+    td {
+        min-height: 30px;
+        height: 30px;
+        empty-cells: show;
+        border-spacing: 0;
+        padding: 4px 16px;
+        border: 1px solid transparent;
+    }
+}
