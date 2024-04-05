@@ -2,17 +2,17 @@
 .ge-table {
     --text-color: #000;
     --even-row-bg : oklch(1 0 0);
-    --odd-row-mix-color: oklch(0.627 0 90); /* gray 50% */
+    --odd-row-mix-color: oklch(0.627 0 90);
     --selected-odd-row-mix-color: #000;
     --odd-row-l-factor: 0.95;
-    --selected-l-factor: 0.9999;
 
     --header-border-color: color-mix(in oklch, var(--text-color) 50%, var(--even-row-bg) 50%);
     --header-horizontal-row-border-color: color-mix(in oklch, var(--even-row-bg) 80%, var(--odd-row-mix-color) 30%);
     --cell-selected-bg: #004e9ee0;
+    --cell-selected-border: #506b9e;
     --cell-selected-text-color: #fff;
 
-    --dark-green: oklch(47.34% 0.075 202.33);
+    --dark-green: #14686e;
     --red: #f93b18;
     --ocean-blue: #2071b5;
     --solar-yellow: #ffda00;
@@ -22,17 +22,6 @@
     --purple: #9b62c3;
     --wind: #4fcc51;
     --hydro: #2da55d;
-
-    --dark-green-pastel: #abc7c9;
-    --red-pastel: #f6bdb2;
-    --ocean-blue-pastel: #b5cde2;
-    --solar-yellow-pastel: #f8edab;
-    --green-pastel: #bde5d0;
-    --dark-blue-pastel: #b4bac3;
-    --pink-pastel: #eab6cb;
-    --purple-pastel: #dac9e6;
-    --wind-pastel: #c3e9c3;
-    --hydro-pastel: #b9ddc7;
 }
 
 .ge-table thead tr th {
@@ -60,17 +49,6 @@
     &.bg-purple {--td-bg: var(--purple); --td-color: #fff; }
     &.bg-wind { --td-bg: var(--wind);  }
     &.bg-hydro {--td-bg: var(--hydro); --td-color: #fff; }
-
-    &.bg-dark-green-pastel { --td-bg: var(--dark-green-pastel); --td-color: #fff; }
-    &.bg-red-pastel { --td-bg: var(--red-pastel); --td-color: #fff; }
-    &.bg-ocean-blue-pastel { --td-bg: var(--ocean-blue-pastel); --td-color: #fff; }
-    &.bg-solar-yellow-pastel { --td-bg: var(--solar-yellow-pastel);  }
-    &.bg-green-pastel { --td-bg: var(--green-pastel); --td-color: #fff; }
-    &.bg-dark-blue-pastel { --td-bg: var(--dark-blue-pastel); --td-color: #fff; }
-    &.bg-pink-pastel { --td-bg: var(--pink-pastel); --td-color: #fff;}
-    &.bg-purple-pastel {--td-bg: var(--purple-pastel); --td-color: #fff; }
-    &.bg-wind-pastel { --td-bg: var(--wind-pastel);  }
-    &.bg-hydro-pastel {--td-bg: var(--hydro-pastel); --td-color: #fff; }
 }
 
 .ge-table tbody {
@@ -81,11 +59,17 @@
             color: var(--td-color);
             border-bottom-color: oklch(from var(--td-bg) calc(l * var(--odd-row-l-factor) * var(--odd-row-l-factor)) c h);
 
+            &.pastel {
+                background-color: color-mix(in srgb, var(--td-bg) 40%, white);
+                border-bottom-color: color-mix(in srgb, var(--td-bg) 50%, white);
+                color: #000;
+            }
+
             &.cell-selected {
                 --selected-bg: color-mix(in oklch, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
                 background-color:  var(--selected-bg);
                 color: var(--td-cell-selected-text-color);
-                border-bottom-color: var(--selected-bg);
+                border-bottom-color: var(--cell-selected-border);
             }
         }
     }
@@ -93,10 +77,16 @@
         td {
             background-color: var(--td-bg);
 
+            &.pastel {
+                background-color: color-mix(in srgb, var(--td-bg) 35%, white);
+                border-bottom-color: color-mix(in srgb, var(--td-bg) 50%, white);
+                color: #000;
+            }
+
             &.cell-selected {
                 --selected-bg: var(--td-cell-selected-bg);
                 background-color: var(--selected-bg);
-                border-bottom-color: var(--selected-bg);
+                border-bottom-color: var(--cell-selected-border);
             }
         }
     }
