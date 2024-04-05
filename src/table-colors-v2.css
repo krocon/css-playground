@@ -7,10 +7,9 @@
     --odd-row-l-factor: 0.95;
     --selected-l-factor: 0.9999;
 
-    --header-horizontal-row-border-color: color-mix(in oklch, var(--text-color) 50%, var(--even-row-bg) 50%);
-    --body-horizontal-row-border-color: color-mix(in oklch, var(--even-row-bg) 80%, var(--odd-row-mix-color) 30%);
-
-    --cell-selected-bg: #002d81;
+    --header-border-color: color-mix(in oklch, var(--text-color) 50%, var(--even-row-bg) 50%);
+    --header-horizontal-row-border-color: color-mix(in oklch, var(--even-row-bg) 80%, var(--odd-row-mix-color) 30%);
+    --cell-selected-bg: #004e9ee0;
     --cell-selected-text-color: #fff;
 
     --dark-green: oklch(47.34% 0.075 202.33);
@@ -37,15 +36,13 @@
 }
 
 .ge-table thead tr th {
-    border-top-color: var(--body-horizontal-row-border-color);
-    border-bottom-color: var(--body-horizontal-row-border-color);
+    border-top-color: var(--header-horizontal-row-border-color);
+    border-bottom-color: var(--header-horizontal-row-border-color);
     background-color: var(--even-row-bg);
 }
 .ge-table thead tr:last-child th {
-    border-bottom-color: var(--header-horizontal-row-border-color);
+    border-bottom-color: var(--header-border-color);
 }
-
-
 
 .ge-table tbody tr td {
     --td-bg: var(--even-row-bg);
@@ -85,9 +82,10 @@
             border-bottom-color: oklch(from var(--td-bg) calc(l * var(--odd-row-l-factor) * var(--odd-row-l-factor)) c h);
 
             &.cell-selected {
-                background-color:  color-mix(in oklch, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
+                --selected-bg: color-mix(in oklch, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
+                background-color:  var(--selected-bg);
                 color: var(--td-cell-selected-text-color);
-                border-bottom-color: color-mix(in oklch, var(--td-cell-selected-bg) 80%, var(--odd-row-mix-color) 30%);
+                border-bottom-color: var(--selected-bg);
             }
         }
     }
@@ -96,7 +94,9 @@
             background-color: var(--td-bg);
 
             &.cell-selected {
-                background-color: var(--td-cell-selected-bg);
+                --selected-bg: var(--td-cell-selected-bg);
+                background-color: var(--selected-bg);
+                border-bottom-color: var(--selected-bg);
             }
         }
     }
