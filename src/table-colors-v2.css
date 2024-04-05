@@ -9,7 +9,7 @@
 
     --header-border-color: color-mix(in oklch, var(--text-color) 50%, var(--even-row-bg) 50%);
     --header-horizontal-row-border-color: color-mix(in oklch, var(--even-row-bg) 80%, var(--odd-row-mix-color) 30%);
-    --cell-selected-bg: #004e9ee0;
+    --cell-selected-bg: #004e9e;
     --cell-selected-border: #506b9e;
     --cell-selected-text-color: #fff;
 
@@ -106,8 +106,7 @@
                 }
 
                 &.cell-selected {
-                    --selected-bg: color-mix(in oklch, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
-                    background-color: var(--selected-bg);
+                    background-color: color-mix(in oklch, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
                     color: var(--td-cell-selected-text-color);
                     border-bottom-color: var(--cell-selected-border);
                 }
@@ -125,8 +124,7 @@
                 }
 
                 &.cell-selected {
-                    --selected-bg: var(--td-cell-selected-bg);
-                    background-color: var(--selected-bg);
+                    background-color: var(--td-cell-selected-bg);
                     border-bottom-color: var(--cell-selected-border);
                 }
             }
