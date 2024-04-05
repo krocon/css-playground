@@ -5,6 +5,7 @@
     --odd-row-mix-color: oklch(0.627 0 90);
     --selected-odd-row-mix-color: #000;
     --odd-row-l-factor: 0.95;
+    --border-l-factor: 0.85;
 
     --header-border-color: color-mix(in oklch, var(--text-color) 50%, var(--even-row-bg) 50%);
     --header-horizontal-row-border-color: color-mix(in oklch, var(--even-row-bg) 80%, var(--odd-row-mix-color) 30%);
@@ -24,69 +25,110 @@
     --hydro: #2da55d;
 }
 
-.ge-table thead tr th {
-    border-top-color: var(--header-horizontal-row-border-color);
-    border-bottom-color: var(--header-horizontal-row-border-color);
-    background-color: var(--even-row-bg);
-}
-.ge-table thead tr:last-child th {
-    border-bottom-color: var(--header-border-color);
-}
+.ge-table {
+    thead tr th {
+        border-top-color: var(--header-horizontal-row-border-color);
+        border-bottom-color: var(--header-horizontal-row-border-color);
+        background-color: var(--even-row-bg);
+    }
 
-.ge-table tbody tr td {
-    --td-bg: var(--even-row-bg);
-    --td-color: var(--text-color);
-    --td-cell-selected-text-color: var(--cell-selected-text-color);
-    --td-cell-selected-bg: color-mix(in oklch, var(--td-bg) 4%, var(--cell-selected-bg) 80%);
+    thead tr:last-child th {
+        border-bottom-color: var(--header-border-color);
+    }
 
-    &.bg-dark-green { --td-bg: var(--dark-green); --td-color: #fff; }
-    &.bg-red { --td-bg: var(--red); --td-color: #fff; }
-    &.bg-ocean-blue { --td-bg: var(--ocean-blue); --td-color: #fff; }
-    &.bg-solar-yellow { --td-bg: var(--solar-yellow);  }
-    &.bg-green { --td-bg: var(--green); --td-color: #fff; }
-    &.bg-dark-blue { --td-bg: var(--dark-blue); --td-color: #fff; }
-    &.bg-pink { --td-bg: var(--pink); --td-color: #fff;}
-    &.bg-purple {--td-bg: var(--purple); --td-color: #fff; }
-    &.bg-wind { --td-bg: var(--wind);  }
-    &.bg-hydro {--td-bg: var(--hydro); --td-color: #fff; }
-}
+    tbody tr td {
+        --td-bg: var(--even-row-bg);
+        --td-color: var(--text-color);
+        --td-cell-selected-text-color: var(--cell-selected-text-color);
+        --td-cell-selected-bg: color-mix(in oklch, var(--td-bg) 4%, var(--cell-selected-bg) 80%);
 
-.ge-table tbody {
-    tr,
-    tr.odd-row {
-        td {
-            background-color: oklch(from var(--td-bg) calc(l * var(--odd-row-l-factor)) c h);
-            color: var(--td-color);
-            border-bottom-color: oklch(from var(--td-bg) calc(l * var(--odd-row-l-factor) * var(--odd-row-l-factor)) c h);
+        &.bg-dark-green {
+            --td-bg: var(--dark-green);
+            --td-color: #fff;
+        }
 
-            &.pastel {
-                background-color: color-mix(in srgb, var(--td-bg) 40%, white);
-                border-bottom-color: color-mix(in srgb, var(--td-bg) 50%, white);
-                color: #000;
-            }
+        &.bg-red {
+            --td-bg: var(--red);
+            --td-color: #fff;
+        }
 
-            &.cell-selected {
-                --selected-bg: color-mix(in oklch, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
-                background-color:  var(--selected-bg);
-                color: var(--td-cell-selected-text-color);
-                border-bottom-color: var(--cell-selected-border);
-            }
+        &.bg-ocean-blue {
+            --td-bg: var(--ocean-blue);
+            --td-color: #fff;
+        }
+
+        &.bg-solar-yellow {
+            --td-bg: var(--solar-yellow);
+        }
+
+        &.bg-green {
+            --td-bg: var(--green);
+            --td-color: #fff;
+        }
+
+        &.bg-dark-blue {
+            --td-bg: var(--dark-blue);
+            --td-color: #fff;
+        }
+
+        &.bg-pink {
+            --td-bg: var(--pink);
+            --td-color: #fff;
+        }
+
+        &.bg-purple {
+            --td-bg: var(--purple);
+            --td-color: #fff;
+        }
+
+        &.bg-wind {
+            --td-bg: var(--wind);
+        }
+
+        &.bg-hydro {
+            --td-bg: var(--hydro);
+            --td-color: #fff;
         }
     }
-    tr.even-row {
-        td {
-            background-color: var(--td-bg);
 
-            &.pastel {
-                background-color: color-mix(in srgb, var(--td-bg) 35%, white);
-                border-bottom-color: color-mix(in srgb, var(--td-bg) 50%, white);
-                color: #000;
+    tbody {
+        tr,
+        tr.odd-row {
+            td {
+                background-color: oklch(from var(--td-bg) calc(l * var(--odd-row-l-factor)) c h);
+                color: var(--td-color);
+                border-bottom-color: oklch(from var(--td-bg) calc(l * var(--border-l-factor)) c h);
+
+                &.pastel {
+                    background-color: color-mix(in srgb, var(--td-bg) 40%, white);
+                    border-bottom-color: color-mix(in srgb, var(--td-bg) 50%, white);
+                    color: #000;
+                }
+
+                &.cell-selected {
+                    --selected-bg: color-mix(in oklch, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
+                    background-color: var(--selected-bg);
+                    color: var(--td-cell-selected-text-color);
+                    border-bottom-color: var(--cell-selected-border);
+                }
             }
+        }
 
-            &.cell-selected {
-                --selected-bg: var(--td-cell-selected-bg);
-                background-color: var(--selected-bg);
-                border-bottom-color: var(--cell-selected-border);
+        tr.even-row {
+            td {
+                background-color: var(--td-bg);
+
+                &.pastel {
+                    background-color: color-mix(in srgb, var(--td-bg) 35%, white);
+                    border-bottom-color: color-mix(in srgb, var(--td-bg) 50%, white);
+                    color: #000;
+                }
+
+                &.cell-selected {
+                    --selected-bg: var(--td-cell-selected-bg);
+                    background-color: var(--selected-bg);
+                    border-bottom-color: var(--cell-selected-border);
+                }
             }
         }
     }
