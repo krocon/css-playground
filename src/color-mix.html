@@ -29,18 +29,12 @@
         height: 40px;
         border-bottom: solid 1px #777;
         box-sizing: content-box;
+        display: grid;
+        place-items: center;
       }
 
       > div.label {
         width: 100px;
-        height: 40px;
-        border: none;
-        display: grid;
-        align-items: center;
-        justify-content: end;
-      }
-      > div.long-label {
-        width: 500px;
         height: 40px;
         border: none;
         display: grid;
@@ -84,15 +78,14 @@
     buf.push(`
       <div class="palette">
         <div class="label">${color}</div>
-        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         <div style="background-color: ${color}"></div>
-        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
       </div>
     `);
     for (const cim of colorInterpolationMethodes) {
       buf.push(`<div class="palette">`);
       buf.push(`<div class="label">${cim}:</div>`);
-      buf.push(`<div style="background-color: white"></div>`);
       for (let i = 100; i > 0; i = i - 10) {
         buf.push(`<div style="background-color: color-mix(in ${cim}, ${color}, white ${i}%)"></div>`);
       }
@@ -100,9 +93,21 @@
       for (let i = 10; i <= 100; i = i + 10) {
         buf.push(`<div style="background-color: color-mix(in ${cim}, ${color}, black ${i}%)"></div>`);
       }
-      buf.push(`<div style="background-color: black"></div>`);
       buf.push("</div>");
     }
+
+    buf.push(`<div class="palette">`);
+    buf.push(`<div class="label">%</div>`);
+    for (let i = 100; i > 0; i = i - 10) {
+      buf.push(`<div>${i}</div>`);
+    }
+    buf.push(`<div>0</div>`);
+    for (let i = 10; i <= 100; i = i + 10) {
+      buf.push(`<div>${i}</div>`);
+    }
+    buf.push("</div>");
+
+
     buf.push("<br><br>");
   }
   document.querySelector(".palette-outer-div").innerHTML = buf.join("");
