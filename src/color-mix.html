@@ -31,6 +31,13 @@
         box-sizing: content-box;
         display: grid;
         place-items: center;
+
+        .circle {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          border: solid 1px #777;
+        }
       }
 
       > div.label {
@@ -54,6 +61,9 @@
         target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix
     </a>
   </p>
+
+  <p>color-mix(in srgb, #3dc07c, white 30%)</p>
+
   <div class="palette-outer-div"></div>
 </section>
 <script>
@@ -61,14 +71,11 @@
   const colorInterpolationMethodes = [
     "srgb",
     "srgb-linear",
-    //"display-p3",
-    //"a98-rgb",
-    //"prophoto-rgb",
-    //"rec2020",
+    //"display-p3", "a98-rgb", "prophoto-rgb", "rec2020",
     "lab",
     "oklab",
     "xyz",
-    "xyz-d50", "xyz-d65",
+    // "xyz-d50", "xyz-d65",
     "hsl",  "hwb", "lch", "oklch"
   ];
   const colors = ["#3dc07c", "#0298db", "#ffda00", "#f93b18"];
@@ -77,21 +84,33 @@
   for (const color of colors) {
     buf.push(`
       <div class="palette">
-        <div class="label">${color}</div>
-        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-        <div style="background-color: ${color}"></div>
-        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div class="label"></div>
+        <div>
+            <div class="circle" style="background-color: white" title="white"></div>
+        </div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div>
+            <div class="circle" style="background-color: ${color}" title="${color}"></div>
+        </div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div>
+            <div class="circle" style="background-color: black" title="black"></div>
+        </div>
       </div>
     `);
     for (const cim of colorInterpolationMethodes) {
       buf.push(`<div class="palette">`);
       buf.push(`<div class="label">${cim}:</div>`);
       for (let i = 100; i > 0; i = i - 10) {
-        buf.push(`<div style="background-color: color-mix(in ${cim}, ${color}, white ${i}%)"></div>`);
+        buf.push(`<div
+            style="background-color: color-mix(in ${cim}, ${color}, white ${i}%)"
+            title="color-mix(in ${cim}, ${color}, white ${i}%)"></div>`);
       }
       buf.push(`<div style="background-color: ${color}"></div>`);
       for (let i = 10; i <= 100; i = i + 10) {
-        buf.push(`<div style="background-color: color-mix(in ${cim}, ${color}, black ${i}%)"></div>`);
+        buf.push(`<div
+            style="background-color: color-mix(in ${cim}, ${color}, black ${i}%)"
+            title="color-mix(in ${cim}, ${color}, black ${i}%)"></div>`);
       }
       buf.push("</div>");
     }

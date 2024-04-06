@@ -7,8 +7,8 @@
     --odd-row-l-factor: 0.95;
     --border-l-factor: 0.85;
 
-    --header-border-color: color-mix(in oklab, var(--text-color) 50%, var(--even-row-bg) 50%);
-    --header-horizontal-row-border-color: color-mix(in oklab, var(--even-row-bg) 80%, var(--odd-row-mix-color) 30%);
+    --header-border-color: color-mix(in srgb, var(--text-color) 50%, var(--even-row-bg) 50%);
+    --header-horizontal-row-border-color: color-mix(in srgb, var(--even-row-bg) 80%, var(--odd-row-mix-color) 30%);
     --cell-selected-bg: #004e9e;
     --cell-selected-border: #506b9e;
     --cell-selected-text-color: #fff;
@@ -40,7 +40,7 @@
         --td-bg: var(--even-row-bg);
         --td-color: var(--text-color);
         --td-cell-selected-text-color: var(--cell-selected-text-color);
-        --td-cell-selected-bg: color-mix(in oklab, var(--td-bg) 4%, var(--cell-selected-bg) 80%);
+        --td-cell-selected-bg: color-mix(in srgb, var(--td-bg) 4%, var(--cell-selected-bg) 80%);
 
         &.bg-dark-green {
             --td-bg: var(--dark-green);
@@ -106,7 +106,7 @@
                 }
 
                 &.cell-selected {
-                    background-color: color-mix(in oklab, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
+                    background-color: color-mix(in srgb, var(--td-cell-selected-bg) 100%, var(--selected-odd-row-mix-color) 5%);
                     color: var(--td-cell-selected-text-color);
                     border-bottom-color: var(--cell-selected-border);
                 }
